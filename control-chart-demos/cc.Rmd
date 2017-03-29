@@ -1,0 +1,58 @@
+---
+title: "Out of control pellets density check sheet"
+author: "Quality Control Department"
+date: "30/06/2015"
+output: html_document
+---
+
+Instructions: Mark ticks for the more likely cause 
+of the out-of-control point. Cross every four ticks 
+to make five.
+
+```{r, echo=FALSE, results='asis'}
+cManpower <- c("Recepcionist", "Record. Operator", 
+               "Storage operators")
+cMaterials <- c("Supplier", "Transport agency", 
+                "Packing")
+cMachines <- c("Compressor type", 
+               "Operation conditions",
+               "Machine adjustment")
+cMethods <- c("Reception", "Transport method")
+cMeasurements <- c("Recording method", 
+                   "Measurement appraisal")
+cGroups <- c("Manpower", "Materials", "Machines", 
+             "Methods", "Measurements")
+
+cEffect <- "Too high density"
+
+cause.and.effect(
+  cause = list(Manpower = cManpower,
+               Materials = cMaterials,
+               Machines = cMachines,
+               Methods = cMethods,
+               Measurements = cMeasurements),
+  effect = cEffect)
+
+data_checkSheet <- rbind(
+  data.frame(Group = "Manpower", 
+             Cause = cManpower),
+  data.frame(Group = "Machines", 
+             Cause = cMachines),
+  data.frame(Group = "Materials", 
+             Cause = cMaterials),
+  data.frame(Group = "Methods", 
+             Cause = cMethods),
+  data.frame(Group = "Measurements", 
+             Cause = cMeasurements)
+)
+
+
+library(xtable)
+print(xtable(data_checkSheet), type = "HTML", 
+      html.table.attributes = 
+      "border=1 width=100% cellpadding=10")
+```
+
+|Week|Operator|Signature|
+|----|--------|---------|
+|    |        |         |
