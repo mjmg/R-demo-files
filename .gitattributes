@@ -1,0 +1,4 @@
+./gcms-demo/PCOS/PCOS/CONTROL/CON_BASA_567795_50.mzXML filter=lfs diff=lfs merge=lfs -text
+./gcms-demo/PCOS/PCOS/CONTROL/CON_BASA_574488.mzXML filter=lfs diff=lfs merge=lfs -text
+./gcms-demo/PCOS/PCOS/DISEASE/DIA_BASE_630974.mzXML filter=lfs diff=lfs merge=lfs -text
+./gcms-demo/PCOS/PCOS/DISEASE/DIA_BASE_635799.mzXML filter=lfs diff=lfs merge=lfs -text
