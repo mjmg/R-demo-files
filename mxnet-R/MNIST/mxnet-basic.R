@@ -210,3 +210,4 @@ graph.viz(model$symbol, type = "viz", direction = "LR")
 preds <- predict(model, test.array)
 pred.label <- max.col(t(preds)) - 1
 submission <- data.frame(ImageId=1:ncol(test), Label=pred.label)
+submission

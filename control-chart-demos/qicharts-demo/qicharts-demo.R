@@ -1,4 +1,5 @@
-library(qicharts)
+require(qicharts)
+require(widgetframe)
 library(ggplot2)
 library(plotly)
 
@@ -57,3 +58,38 @@ qic(y, n, x = week, data = d, chart = 'p',
     notes = a,
     exclude = 30)
 
+
+
+
+# Load qicharts2
+library(qicharts2)
+
+# Lock random number generator to make examples reproducible.
+set.seed(19)
+
+# Generate 24 random numbers from a normal distribution.
+y <- rnorm(24)
+
+qc<-qic(y)
+
+ggplotly(qc)
+
+qc2<-qic(y, chart = 'i')
+
+qcw<-ggplotly(qc2)
+
+
+htmlwidgets::saveWidget(frameableWidget(qcw),'qcw.html')
+
+
+
+
+head(gtt)
+qgtt<-qic(month, harms, days,
+    data     = gtt,
+    multiply = 1000,
+    title    = 'Patient harm',
+    ylab     = 'Adverse events per 1000 patient days',
+    xlab     = 'Month')
+
+htmlwidgets::saveWidget(frameableWidget(ggplotly(qgtt)),'qgtt.html')
